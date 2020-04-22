@@ -221,7 +221,10 @@ export class Color<T = number> {
 	// number, b?: number)` See:
 	// https://github.com/AssemblyScript/assemblyscript/issues/646 and
 	// https://github.com/AssemblyScript/assemblyscript/issues/639
-	constructor(r: f64 = 0, g: f64 = 0, b: f64 = 0) {
+	constructor(r: f64 = 0, g?: f64, b?: f64) {
+		if (g === null || b === null) {
+			this.setHex(r);
+		}
 		this.setRGB(r, g, b)
 	}
 
